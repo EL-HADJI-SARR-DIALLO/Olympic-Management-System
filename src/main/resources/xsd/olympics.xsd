@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:tns="http://olympics.com/management/soap"
+        targetNamespace="http://olympics.com/management/soap"
+        elementFormDefault="qualified">
+
+    <!-- Requête permettant d'obtenir le tableau des médailles -->
+    <xs:element name="getTableauMedaillesRequest">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Réponse contenant le tableau des médailles -->
+    <xs:element name="getTableauMedaillesResponse">
+        <xs:complexType>
+            <xs:sequence>
+
+                <xs:element
+                        name="pays"
+                        type="tns:PaysMedaille"
+                        minOccurs="0"
+                        maxOccurs="unbounded"/>
+
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Structure représentant une nationalité -->
+    <xs:complexType name="PaysMedaille">
+        <xs:sequence>
+
+            <xs:element
+                    name="rang"
+                    type="xs:int"/>
+
+            <xs:element
+                    name="nationalite"
+                    type="xs:string"/>
+
+            <xs:element
+                    name="nombreOr"
+                    type="xs:long"/>
+
+            <xs:element
+                    name="nombreArgent"
+                    type="xs:long"/>
+
+            <xs:element
+                    name="nombreBronze"
+                    type="xs:long"/>
+
+            <xs:element
+                    name="total"
+                    type="xs:long"/>
+
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
